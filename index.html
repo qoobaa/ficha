@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="assets/bpm_styles.css" type="text/css" media="screen" charset="utf-8" />
+    <title>Ficha</title>
+  </head>
+  <body>
+    <h1>Ficha</h1>
+
+    <script type="text/x-handlebars">
+      {{view Ficha.SideView valueBinding="Ficha.cardController.currentCard.front" placeholder="Front Side"}}
+      {{view Ficha.SideView valueBinding="Ficha.cardController.currentCard.back" placeholder="Back Side"}}
+
+      {{#view SC.Button target="Ficha.cardController" action="newCard"}}Create New Card{{/view}}
+    </script>
+  </body>
+  <script type="text/javascript" src="assets/bpm_libs.js"></script>
+  <script type="text/javascript" src="lib/main.js"></script>
+</html>
