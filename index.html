@@ -7,10 +7,16 @@
     <h1>Ficha</h1>
 
     <script type="text/x-handlebars">
-      {{view Ficha.SideView valueBinding="Ficha.cardController.currentCard.front" placeholder="Front Side"}}
-      {{view Ficha.SideView valueBinding="Ficha.cardController.currentCard.back" placeholder="Back Side"}}
+      <p>
+        {{view Ficha.SideView valueBinding="Ficha.cardController.currentCard.front" placeholder="Front side"}}
+      </p>
+      <p>
+        {{view Ficha.SideView valueBinding="Ficha.cardController.currentCard.back" placeholder="Back side"}}
+      </p>
 
-      {{#view SC.Button target="Ficha.cardController" action="newCard"}}Create New Card{{/view}}
+      {{#collection contentBinding="Ficha.cardsController" tagName="ul"}}
+        {{content.front}} {{content.back}}
+      {{/collection}}
     </script>
   </body>
   <script type="text/javascript" src="assets/bpm_libs.js"></script>
