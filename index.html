@@ -16,9 +16,7 @@
 
       {{#collection contentBinding="Ficha.cardsController" tagName="ul"}}
         {{content.front}} {{content.back}}
-        {{#view SC.Button target="Ficha.cardsController" action="delete"}}
-          Delete
-        {{/view}}
+        {{#view SC.Button isActiveBinding="content.delete"}}Delete{{/view}}
       {{/collection}}
     </script>
   </body>
