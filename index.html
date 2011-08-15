@@ -6,13 +6,17 @@
   <body>
     <h1>Ficha</h1>
 
-    <script type="text/x-handlebars">
+    <script id="card" type="text/x-handlebars">
       <p>
         {{view Ficha.SideView valueBinding="Ficha.cardController.currentCard.front" placeholder="Front side"}}
       </p>
       <p>
         {{view Ficha.SideView valueBinding="Ficha.cardController.currentCard.back" placeholder="Back side"}}
       </p>
+    </script>
+
+    <script type="text/x-handlebars">
+      {{view Ficha.CardView}}
 
       {{#collection contentBinding="Ficha.cardsController" tagName="ul"}}
         {{content.front}} {{content.back}}
