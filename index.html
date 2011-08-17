@@ -8,10 +8,10 @@
 
     <script id="card" type="text/x-handlebars">
       <p>
-        {{view Ficha.SideView valueBinding="Ficha.cardController.currentCard.front" placeholder="Front side"}}
+        {{view Ficha.SideView valueBinding="Ficha.newCardController.front" placeholder="Front side"}}
       </p>
       <p>
-        {{view Ficha.SideView valueBinding="Ficha.cardController.currentCard.back" placeholder="Back side"}}
+        {{view Ficha.SideView valueBinding="Ficha.newCardController.back" placeholder="Back side"}}
       </p>
     </script>
 
@@ -25,5 +25,5 @@
     </script>
   </body>
   <script type="text/javascript" src="assets/bpm_libs.js"></script>
-  <script>spade.require("ficha")</script>
+  <script>spade.require("ficha");</script>
 </html>

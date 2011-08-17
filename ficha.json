@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "sproutcore": ">= 0-pre",
-    "spade": ">= 0"
+    "spade": ">= 0",
+    "sproutcore-datastore": ">= 0-pre"
   }
 }
