@@ -20,7 +20,7 @@
 
       {{#collection contentBinding="Ficha.cardsController" tagName="ul"}}
         {{content.front}} {{content.back}}
-        {{#view SC.Button contentBinding="parentView.content" target="Ficha.cardsController" action="deleteCard"}}Delete{{/view}}
+        {{#view SC.Button contentBinding="content" target="Ficha.cardsController" action="deleteCard"}}Delete{{/view}}
       {{/collection}}
     </script>
   </body>
