@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="transform3d">
+  <head>
+    <meta charset="UTF-8">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/assets/jquery-1.6.2.min.js"></script>
+    <script src="scripts/glue.js" type="text/javascript"></script>    
+  </head>
+  <body>
+    <!-- <div class="wrap"> -->
+    <div class="wrap">
+      
+      <header class="deck-header columns columns-opposite">
+        <div class="first">
+          
+          <div class="dropdown"> <!-- Open: <div class="dropdown dropdown-open"> -->
+            <a class="button button-large button-dropdown" href=""><span>English vocabulary</span></a>
+            <ul class="dropdown-list">
+              <li class="selected"><a href="">English vocabulary</a></li>
+              <li><a href="">Very long label goes here let’s see how it’s gonna look like</a></li>
+              <li><a href="">One more</a></li>
+              <li><a href="">Second deck name</a></li>
+              <li class="new-deck"><a href="">New deck…</a></li>
+            </ul>
+            
+            <div class="deck-rename">
+              <a href=""><span>Rename</span></a>
+            </div>
+            
+            <div class="deck-edit">
+              <input type="text" name="" value="">
+            </div>
+          </div>
+          
+          
+          
+          
+        </div>
+        <div class="last">
+          <div class="play-deck">
+            <a class="button button-confirm button-large button-play" href="">Play this deck</a>
+          </div>
+          <div class="play-score">
+            <div class="heading"><span class="heading-inner">Score</span></div>
+            <div class="columns columns-gap columns-equal">
+              <div class="first play-score-correct play-score-none"><b>0</b> correct</div>
+              <div class="last play-score-incorrect play-score-none"><b>0</b> wrong</p>
+            </div>
+          </div>
+        </div>        
+      </header>
+      
+      <div class="main">
+        
+        <div class="heading deck-divider">
+          <span class="heading-inner">4 cards</span>
+          <!-- <span class="heading-inner">1 / 6</span> -->
+        </div>
+        
+        <ul class="cards">
+          <li class="card">
+            <div class="card-sides">
+              <a class="card-edit-layer" href=""></a>
+              <div class="card-side card-front">
+                <a class="card-delete" href=""><img src="content/icon.png" width="24" height="24" alt="Delete"></a>
+                <div class="card-button card-edit-flip"><a class="button" href="">Flip the card</a></div>
+                <textarea class="card-text" name="" rows="5" cols="40">flibbertigibbet</textarea>
+                <!--
+                <script type="text/javascript">
+                  // Line breaks can be added only programatically
+                  document.getElementById('t').value = '\n' + document.getElementById('t').value;
+                </script>
+                -->
+              </div>
+              <div class="card-side card-back">
+                <a class="card-delete" href=""><img src="content/icon.png" width="24" height="24" alt="Delete"></a>
+                <textarea class="card-text" name="" rows="5" cols="40">a flighty or whimsical person, usually a young woman</textarea>
+                <div class="card-button card-edit-flip-back"><a class="button button-confirm" href="">Done editing</a></div>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <div class="card-sides">
+              <a class="card-edit-layer" href=""></a>
+              <div class="card-side card-front">
+                <a class="card-delete" href=""><img src="content/icon.png" width="24" height="24" alt="Delete"></a>
+                <div class="card-button card-edit-flip"><a class="button" href="">Edit back of the card</a></div>
+                <textarea class="card-text" name="" rows="5" cols="40">surreptitious</textarea>
+              </div>
+              <div class="card-side card-back">
+                <a class="card-delete" href=""><img src="content/icon.png" width="24" height="24" alt="Delete"></a>
+                <textarea class="card-text" name="" rows="5" cols="40">kept secret, esp. because it would not be approved of</textarea>
+                <div class="card-button card-edit-flip-back"><a class="button button-confirm" href="">Done editing</a></div>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <div class="card-sides">
+              <a class="card-edit-layer" href=""></a>
+              <div class="card-side card-front">
+                <a class="card-delete" href=""><img src="content/icon.png" width="24" height="24" alt="Delete"></a>
+                <div class="card-button card-edit-flip"><a class="button" href="">Edit back of the card</a></div>
+                <textarea class="card-text" name="" rows="5" cols="40">abstruse</textarea>
+              </div>
+              <div class="card-side card-back">
+                <a class="card-delete" href=""><img src="content/icon.png" width="24" height="24" alt="Delete"></a>
+                <textarea class="card-text" name="" rows="5" cols="40">difficult to understand; obscure</textarea>
+                <div class="card-button card-edit-flip-back"><a class="button button-confirm" href="">Done editing</a></div>
+              </div>
+            </div>
+          </li>
+          <li class="card hidden" id="this-id-is-just-for-the-demo">
+            <div class="card-sides">
+              <a class="card-edit-layer" href=""></a>
+              <div class="card-side card-front">
+                <a class="card-delete" href=""><img src="content/icon.png" width="24" height="24" alt="Delete"></a>
+                <div class="card-button card-edit-flip"><a class="button" href="">Edit back of the card</a></div>
+                <textarea class="card-text" name="" rows="5" cols="40"></textarea>
+              </div>
+              <div class="card-side card-back">
+                <a class="card-delete" href=""><img src="content/icon.png" width="24" height="24" alt="Delete"></a>
+                <textarea class="card-text" name="" rows="5" cols="40"></textarea>
+                <div class="card-button card-edit-flip-back"><a class="button button-confirm" href="">Done editing</a></div>
+              </div>
+            </div>
+          </li>
+          <li class="card card-new">
+            <a href=""><img src="content/icon.png" width="66" height="65" alt="Add a card"></a>
+          </li>
+        </ul>
+
+        <div class="play">
+          <div class="card">
+            <div class="card-sides">
+              <div class="card-side card-front">
+                <div class="card-text">
+                  flibbertigibbet
+                </div>
+                <div class="card-button"><a class="button button-solve button-large" href="">Got it, flip the card</a></div>
+              </div>
+              <div class="card-side card-back">
+                <div class="card-text">
+                  a flighty or whimsical person, usually a young woman
+                </div>
+                <div class="card-button">
+                  <a class="button button-confirm button-large" href="">Correct</a>
+                  <a class="button button-cancel button-large" href="">Wrong</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+  </body>
+</html>

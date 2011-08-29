@@ -3,7 +3,7 @@
 /* ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
    ••  Flashcards                                                    ••
    ••  Updated: August 2011                                          ••
-   ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+   ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••   
 
 ----------------------------------------------------------------------- */
 
@@ -30,9 +30,16 @@ a {
   color: #1f82c2;
 }
 
+.hidden {
+  display: none;
+}
+
+/*  =Layout
+======================================================================= */
+
 .wrap {
   background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid #a99055;
   background-clip: padding-box;
   -moz-border-radius: 9px;
   border-radius: 9px;
@@ -41,16 +48,10 @@ a {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 30px;
-  margin: 100px auto 0;
-  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 3px 0;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 3px 0;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 3px 0;
-
-  -o-transition: height 0.25s linear;
-  -ms-transition: height 0.25s linear;
-  -moz-transition: height 0.25s linear;
-  -webkit-transition: height 0.25s linear;
-  transition: height 0.25s linear;
+  margin: 50px auto 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.15) 0 1px 2px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0 1px 2px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 1px 2px;
 }
 
 .columns:after {
@@ -68,35 +69,73 @@ a {
   box-sizing: border-box;
 }
 
+.columns-gap > .second,
+.columns-gap > .last {
+  padding-left: 15px;
+}
+
+.columns > .first,
+.columns > .second {
+  padding-right: 15px;
+}
+
+.columns-opposite > .first {
+  width: 50%;
+  height: 90px;
+  margin: -30px 0 0 -20px;
+  padding: 30px 0 0 20px;
+}
+
 .columns-opposite > .last {
   float: right;
+  position: relative;
 }
 
-.deck-header {
-  margin-left: -10px;
-  padding-bottom: 20px;
+.columns-equal > .first,
+.columns-equal > .last {
+  width: 50%;
 }
 
-.deck-divider {
+/*  =Heading
+======================================================================= */
+
+.heading {
   margin-top: 12px;
 }
 
-.deck-divider::before {
+.heading::before {
   content: "";
   display: block;
   height: 1px;
-  margin: 0 -30px -12px;
+  margin-bottom: -12px;
   background-color: #e5e5e5;
 }
 
-.deck-divider .deck-count {
+.heading .heading-inner {
   display: inline-block;
   padding: 0 10px;
-  margin-left: -10px;
   background-color: #fff;
   color: #bfbfbf;
   text-transform: uppercase;
   font-size: 12px;
+}
+
+/* . HEADER
+••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+.deck-header {
+  margin-left: -10px;
+  height: 40px;
+  padding-bottom: 20px;
+}
+
+.deck-divider::before {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.deck-divider .heading-inner {
+  margin-left: -10px;
 }
 
 .button {
@@ -107,6 +146,7 @@ a {
   border-radius: 5px;
   padding: 3px 10px;
   text-shadow: #fff 0 1px 0;
+  background: #aad7f3;
   background:    -moz-linear-gradient(top, #c6e4f7 0%, #aad7f3 100%);
   background:     -ms-linear-gradient(top, #c6e4f7 0%, #aad7f3 100%);
   background:      -o-linear-gradient(top, #c6e4f7 0%, #aad7f3 100%);
@@ -121,19 +161,36 @@ a {
 
 .button-confirm {
   color: #339410;
-  background:    -moz-linear-gradient(top, #c4f0b5 0%, #a5e88e 100%);
-  background:     -ms-linear-gradient(top, #c4f0b5 0%, #a5e88e 100%);
-  background:      -o-linear-gradient(top, #c4f0b5 0%, #a5e88e 100%);
+  background: #92e077;
+  background:    -moz-linear-gradient(top, #b8eba6 0%, #92e077 100%);
+  background:     -ms-linear-gradient(top, #b8eba6 0%, #92e077 100%);
+  background:      -o-linear-gradient(top, #b8eba6 0%, #92e077 100%);
   background: -webkit-gradient(linear, left top, left bottom,
-                            color-stop(0%, #c4f0b5), color-stop(100%, #a5e88e));
-  background: -webkit-linear-gradient(top, #c4f0b5 0%, #a5e88e 100%);
-  background:         linear-gradient(top, #c4f0b5 0%, #a5e88e 100%);
-  -moz-box-shadow: rgba(51, 147, 16, 0.5) 0 1px 0;
-  -webkit-box-shadow: rgba(51, 147, 16, 0.5) 0 1px 0;
-  box-shadow: rgba(51, 147, 16, 0.5) 0 1px 0;
+                            color-stop(0%, #b8eba6), color-stop(100%, #92e077));
+  background: -webkit-linear-gradient(top, #b8eba6 0%, #92e077 100%);
+  background:         linear-gradient(top, #b8eba6 0%, #92e077 100%);
+  -moz-box-shadow: #71c554 0 1px 0;
+  -webkit-box-shadow: #71c554 0 1px 0;
+  box-shadow: #71c554 0 1px 0;
 }
 
-.deck-header .button {
+.button-cancel {
+  color: #fff;
+  text-shadow: #d43434 0 1px 0;
+  background: #f15555;
+  background:    -moz-linear-gradient(top, #f69090 0%, #f15555 100%);
+  background:     -ms-linear-gradient(top, #f69090 0%, #f15555 100%);
+  background:      -o-linear-gradient(top, #f69090 0%, #f15555 100%);
+  background: -webkit-gradient(linear, left top, left bottom,
+                            color-stop(0%, #f69090), color-stop(100%, #f15555));
+  background: -webkit-linear-gradient(top, #f69090 0%, #f15555 100%);
+  background:         linear-gradient(top, #f69090 0%, #f15555 100%);
+  -moz-box-shadow: #de4343 0 1px 0;
+  -webkit-box-shadow: #de4343 0 1px 0;
+  box-shadow: #de4343 0 1px 0;
+}
+
+.button-large {
   font-size: 24px;
   line-height: 25px;
   padding: 7px 10px;
@@ -148,10 +205,11 @@ a {
 ======================================================================= */
 
 .dropdown {
-  position: relative;
+  position: absolute;
 }
 
 .dropdown .button {
+  float: left;
   position: relative;
   z-index: 35;
   background: #e6e6e6;
@@ -225,6 +283,7 @@ a {
 
 .dropdown-open ul {
   display: block;
+  margin-top: 39px;
 }
 
 .dropdown ul:before {
@@ -280,7 +339,117 @@ a {
   border-bottom-left-radius: 4px;
 }
 
+/*  =Rename
+======================================================================= */
 
+.deck-edit {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+}
+
+.dropdown-editing .deck-edit {
+  display: block;
+}
+
+.deck-edit input {
+  margin: 0;
+  font: bold 24px/25px "Helvetica Neue", sans-serif;
+  text-indent: 8px;
+  height: 39px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #333;
+  font-weight: bold;
+}
+
+.deck-rename {
+  right: -65px;
+  position: absolute;
+  font-size: 11px;
+  margin-left: 20px;
+  line-height: 19px;
+}
+
+.deck-rename a {
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.deck-rename a span {
+  color: #999;
+  border-bottom: 1px solid #ddd;
+}
+
+.columns-opposite > .first:hover .deck-rename a span {
+  color: #1f82c2;
+  border-bottom-color: #c6e4f7;
+}
+
+.columns-opposite > .first:hover .deck-rename a:hover span,
+.columns-opposite > .first:hover .deck-rename a:focus span {
+  color: #1f82c2;
+  border-bottom-color: #a5cde7;
+}
+
+/*  =Play
+======================================================================= */
+
+.play-deck {
+  position: absolute;
+  right: 0;
+}
+
+.play-deck .button {
+  white-space: nowrap;
+}
+
+
+/*  =Score
+======================================================================= */
+
+.play-score {
+  position: absolute;
+  right: 0;
+  top: -15px;
+  width: 150px;
+}
+
+.play-score .first {
+  text-align: right;
+}
+
+.play-score .columns {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.play-score b {
+  font: bold 24px/24px "Helvetica Neue", sans-serif;
+  color: #333;
+  display: block;
+}
+
+.play-score-correct b {
+  color: #339310;
+}
+
+.play-score-incorrect b {
+  color: #931010;
+}
+
+.play-score-none b {
+  color: #bbb;
+}
+
+.play-score .heading {
+  text-align: center;
+  margin-bottom: 5px;
+}
 
 /*  =Cards
 ======================================================================= */
@@ -299,7 +468,7 @@ a {
 .card-sides,
 .card-side {
   width: 300px;
-  height: 175px;
+  height: 175px;  
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -311,14 +480,31 @@ a {
   position: relative;
 }
 
+.play .card,
+.play .card-sides,
+.play .card-side {
+  float: none;
+  width: 600px;
+  height: 350px;
+}
+
+.play .card {
+  margin: 30px auto 10px;
+}
+
 .card-new {
   text-align: center;
+}
+
+.card-new img {
+  display: inline-block;
+  background: url("i/icon-new.png") no-repeat;
 }
 
 .card-new a {
   display: block;
   height: 175px;
-  line-height: 175px;
+  padding-top: 54px;
   border: 1px dashed rgba(0, 0, 0, 0.25);
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -330,6 +516,14 @@ a {
 .card-new a:hover,
 .card-new a:focus {
   background-color: #f6f6f6;
+  background:    -moz-linear-gradient(top, #fff 0%, #f6f6f6 100%);
+  background:     -ms-linear-gradient(top, #fff 0%, #f6f6f6 100%);
+  background:      -o-linear-gradient(top, #fff 0%, #f6f6f6 100%);
+  background: -webkit-gradient(linear, left top, left bottom,
+                            color-stop(0%, #fff), color-stop(100%, #f6f6f6));
+  background: -webkit-linear-gradient(top, #fff 0%, #f6f6f6 100%);
+  background:         linear-gradient(top, #fff 0%, #f6f6f6 100%);
+  background-clip: padding-box;
 }
 
 .card-side {
@@ -364,13 +558,47 @@ a {
   box-shadow: rgba(0, 0, 0, 0.35) 0 1px 2px;
 }
 
+.play .card-side {
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background: url("i/play-card-memo-lines.png") 0 54px repeat-x,
+              url("i/card-canvas-pattern.png"),
+              -moz-linear-gradient(top, #fff 0%, #f7f7f7 100%);
+  background: url("i/play-card-memo-lines.png") 0 54px repeat-x,
+              url("i/card-canvas-pattern.png"),
+              -ms-linear-gradient(top, #fff 0%, #f7f7f7 100%);
+  background: url("i/play-card-memo-lines.png") 0 54px repeat-x,
+              url("i/card-canvas-pattern.png"),
+              -o-linear-gradient(top, #fff 0%, #f7f7f7 100%);
+  background: url("i/play-card-memo-lines.png") 0 54px repeat-x,
+              url("i/card-canvas-pattern.png"),
+              -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #f7f7f7));
+  background: url("i/play-card-memo-lines.png") 0 54px repeat-x,
+              url("i/card-canvas-pattern.png"),
+              -webkit-linear-gradient(top, #fff 0%, #f7f7f7 100%);
+  background: url("i/play-card-memo-lines.png") 0 54px repeat-x,
+              url("i/card-canvas-pattern.png"),
+              linear-gradient(top, #fff 0%, #f7f7f7 100%);
+}
+
 .transform3d .card {
   -webkit-perspective: 1000;
 }
 
 .transform3d .card .card-sides {
   -webkit-transform-style: preserve-3d;
-        -webkit-transition: all 0.85s ease-in-out;
+	-o-transition: -o-transform 0.85s ease-in-out;
+	-ms-transition: -ms-transform 0.85s ease-in-out;
+	-moz-transition: -moz-transform 0.85s ease-in-out;
+	-webkit-transition: -webkit-transform 0.85s ease-in-out;
+	transition: transform 0.85s ease-in-out;
+}
+
+.transform3d .card.no-transition .card-sides {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 
 .transform3d .card .card-front {
@@ -384,10 +612,10 @@ a {
 
 .transform3d .flip .card-sides,
 .transform3d .card .card-back {
-  -webkit-transform: rotateY(180deg);
+  -webkit-transform: rotateY(-180deg);
 }
 
-.card-side textarea {
+.card-text {
   border: 0;
   background-color: transparent;
   margin: 0;
@@ -396,7 +624,7 @@ a {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 65px 0 0 0;
+  padding: 65px 5px 0;
   resize: none;
   text-align: center;
   font: normal 30px/37px "Helvetica Neue", sans-serif;
@@ -404,74 +632,58 @@ a {
   z-index: 10;
 }
 
-.card-back textarea {
+.play .card-text {
+  padding: 130px 10px 0;
+  font-size: 60px;
+  line-height: 74px;
+  font-family: sans-serif;
+}
+
+.card-back .card-text {
   padding-top: 28px;
+}
+
+.play .card-back .card-text {
+  padding-top: 56px;
 }
 
 .card-delete {
   position: absolute;
-  left: -10px;
-  top: -10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  background-color: #000;
-  color: #fff;
+  left: -12px;
+  top: -12px;
+  width: 24px;
+  height: 24px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  background: #fff;
   z-index: 40;
-  text-align: center;
-  font-weight: bold;
-  text-transform: upper;
-  font-size: 12px;
-  text-indent: 1px;
-  font-family: "Helvetica Neue";
+}
+
+.card-delete img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("i/card-delete.png") no-repeat 50% 50%;
+  opacity: 0.15;
+  -o-transition: opacity 0.25s ease-out;
+  -ms-transition: opacity 0.25s ease-out;
+  -moz-transition: opacity 0.25s ease-out;
+  -webkit-transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out;
+}
+
+.card-delete:hover img,
+.card-delete:focus img {
+  opacity: 0.35;
 }
 
 .card-edit-layer {
-  opacity: 0;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-/*  border: 5px solid #fff;*/
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  background-color: rgba(0, 0, 0, 0.45);
   z-index: 50;
-  -o-transition: opacity 0.15s linear 0.05s;
-  -ms-transition: opacity 0.15s linear 0.05s;
-  -moz-transition: opacity 0.15s linear 0.05s;
-  -webkit-transition: opacity 0.15s linear 0.05s;
-  transition: opacity 0.15s linear 0.05s;
-}
-
-.card-edit-layer:hover,
-.card-edit-layer:focus {
-  opacity: 1;
-}
-
-.card-edit-layer > span {
-  position: absolute;
-  top: 71px;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-
-.card-edit-layer span span {
-  display: inline-block;
-  background-color: #000;
-  font-weight: bold;
-  font-size: 11px;
-  line-height: 22px;
-  color: #fff;
-  text-transform: uppercase;
-  padding: 0 8px;
-  -moz-border-radius: 11px;
-  border-radius: 11px;
-  border: 1px solid rgba(255, 255, 255, 0.65);
 }
 
 .card-button {
@@ -483,6 +695,42 @@ a {
   text-align: center;
 }
 
+.card:hover .card-text {
+  text-decoration: underline;
+}
+
+.card-editing:hover .card-text,
+.deck-playing .card:hover .card-text {
+  text-decoration: none;
+}
+
+/*  =Play
+======================================================================= */
+
+.play {
+  padding-bottom: 30px;
+}
+
+.play .button {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.play .button-cancel {
+  margin-left: 10px;
+}
+
+/* . APPLICATION STATES
+••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+/*  =Transitions
+======================================================================= */
+
+
+
+/*  =Events
+======================================================================= */
+
 /* Hide editing controls when the card is not edited */
 .card .card-edit-flip,
 .card .card-delete,
@@ -490,8 +738,8 @@ a {
   display: none;
 }
 
-.card-editing .card-edit-flip,
-.card-editing .card-delete {
+.card-buttons .card-edit-flip,
+.card-buttons .card-delete {
   display: block;
 }
 
@@ -503,4 +751,30 @@ a {
 
 .flip .card-edit-flip-back {
   display: block;
+}
+
+/* Deck is being built */
+
+.play,
+.play-score {
+  display: none;
+}
+
+/* Deck is being played */
+
+.deck-playing .play-score,
+.deck-playing .play {
+  display: block;
+}
+
+.deck-playing .play-deck,
+.deck-playing .cards,
+.deck-playing .deck-rename {
+  display: none;
+}
+
+/* Hiding dropdown when it’s edited */
+.dropdown-editing .button-dropdown,
+.dropdown-editing .dropdown-list {
+  display: none;
 }
