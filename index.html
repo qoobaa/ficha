@@ -8,55 +8,34 @@
   <body>
     <script type="text/x-handlebars">
       <div class="wrap">
-
-        <header class="deck-header columns columns-opposite">
-          <div class="first">
-            <div class="dropdown"> <!-- Open: <div class="dropdown dropdown-open"> -->
-              <a class="button button-dropdown" href=""><span>English vocabulary</span></a>
-              <ul>
-                <li class="selected"><a href="">English vocabulary</a></li>
-                <li><a href="">Very long label goes here let’s see how it’s gonna look like</a></li>
-                <li><a href="">One more</a></li>
-                <li><a href="">Second deck name</a></li>
-                <li class="new-deck"><a href="">New deck…</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="last">
-            <div class="play-deck">
-              <a class="button button-confirm button-play" href="">Play this deck</a>
-            </div>
-          </div>
-        </header>
-
         <div class="main">
-
           <div class="deck-divider">
-            <span class="deck-count">4 cards</span>
+            {{view Ficha.DeckCountView}}
           </div>
-
           {{collection Ficha.CardsView class="cards"}}
+          <ul class="cards">
+            {{view Ficha.NewCardView}}
+          </ul>
         </div>
-
       </div>
     </script>
   </body>
 
   <script type="text/x-handlebars" data-template-name="card-new">
-    <a href="">Add a card</a>
+    <a href=""><img src="content/icon.png" width="66" height="65" alt="Add a card"></a>
   </script>
 
   <script type="text/x-handlebars" data-template-name="card">
     <div class="card-sides">
-      <a class="card-edit-layer" href=""><span><span>Click to edit</span></span></a>
+      <a class="card-edit-layer" href=""></a>
       <div class="card-side card-front">
-        <a class="card-delete">X</a>
+        <a class="card-delete" href=""><img src="content/icon.png" width="24" height="24" alt="Delete"></a>
         <div class="card-button card-edit-flip"><a class="button" href="">Edit back of the card</a></div>
-        {{view Ficha.CardSideTextArea valueBinding="card.front"}}
+        {{view Ficha.CardSideTextAreaView valueBinding="card.front"}}
       </div>
       <div class="card-side card-back">
-        <a class="card-delete">X</a>
-        {{view Ficha.CardSideTextArea valueBinding="card.back"}}
+        <a class="card-delete" href=""><img src="content/icon.png" width="24" height="24" alt="Delete"></a>
+        {{view Ficha.CardSideTextAreaView valueBinding="card.back"}}
         <div class="card-button card-edit-flip-back"><a class="button button-confirm" href="">Done editing</a></div>
       </div>
     </div>
